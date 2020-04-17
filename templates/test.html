@@ -274,7 +274,9 @@
                 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                 fd.append("date", date);
                 fd.append("time", time);
-                fd.append("school", 'crh')
+                let searchParams = new URLSearchParams(window.location.search);
+                let param = searchParams.get('sch');
+                fd.append("school", param);
 
                 //Collect USER INFO
                 fd.append("ipAdd", userData.query);

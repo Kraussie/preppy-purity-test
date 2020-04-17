@@ -45,7 +45,7 @@ def test():
         bknd = '#000'
         hlight = '#D50000'
         headIMG = 'https://www.stpaulsschool.org/uploaded/Homepage/5-12/5-12_Boys_homepage_1.jpg'
-    return render_template('test.html', bknd=bknd, hlight=hlight, headIMG=headIMG)
+    return render_template('test.html', school=school, bknd=bknd, hlight=hlight, headIMG=headIMG)
 
 @app.route('/stats')
 def stats():
@@ -59,7 +59,7 @@ def update():
         'date' : request.form.get('date'),
         'time' : request.form.get('time'),
         'ipAdd' : request.form.get('ipAdd'),
-        'school' : request.form.get('test'),
+        'school' : request.form.get('school'),
         'totalScore' : request.form.get('totalScore')
     })
 
