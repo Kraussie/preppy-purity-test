@@ -12,7 +12,40 @@ def index():
 
 @app.route('/test')
 def test():
-    return render_template('test.html')
+    school = request.args['sch']
+    if school == 'crh':
+        bknd = '#163052'
+        hlight = '#7DA7D9'
+        headIMG = 'https://www-tc.pbs.org/wgbh/americanexperience/media/filer_public_thumbnails/filer_public/d1/46/d1464710-a056-41ba-a15b-0f2fc5bfa34a/jfk_harvard_800.jpg__800x529_q85_crop_subsampling-2_upscale.jpg'
+    elif school == 'da':
+        bknd = '#1b5e20'
+        hlight = '#00e676'
+        headIMG = 'https://d13b2ieg84qqce.cloudfront.net/705b9a8896af4dad10ba668e7b9f8a9363189480.jpg'
+    elif school == 'hkiss':
+        bknd = '#0D47A1'
+        hlight = '#eee'
+        headIMG = 'https://www.hotchkiss.org/uploaded/images/Alumni/Alumni_Accomplishments/Banner_Janney77.jpg'
+    elif school == 'lville':
+        bknd = '#000'
+        hlight = '#D50000'
+        headIMG = 'https://prabook.com/web/show-photo-icon.jpg?id=13355&width=220&cache=false'
+    elif school == 'nmh':
+        bknd = '#000'
+        hlight = '#D50000'
+        headIMG = 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBBmxS-2e4xUfj1B6vzmPo8ZXKPBv0xFM2F88gbNdAoJiagGGL&usqp=CAU'
+    elif school == 'and':
+        bknd = '#0D4741'
+        hlight = '#eee'
+        headIMG = 'https://i.ytimg.com/vi/OJTq4j2kDdw/maxresdefault.jpg'
+    elif school == 'ext':
+        bknd = '#000'
+        hlight = '#D50000'
+        headIMG = 'https://media.nbcbayarea.com/2019/09/Yang_Thumb.jpg?resize=850%2C478'
+    elif school == 'spal':
+        bknd = '#000'
+        hlight = '#D50000'
+        headIMG = 'https://www.stpaulsschool.org/uploaded/Homepage/5-12/5-12_Boys_homepage_1.jpg'
+    return render_template('test.html', bknd=bknd, hlight=hlight, headIMG=headIMG)
 
 @app.route('/stats')
 def stats():
