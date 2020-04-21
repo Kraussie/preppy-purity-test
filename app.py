@@ -14,9 +14,9 @@ def index():
 def test():
     school = request.args['sch']
     if school == 'gen':
-        bknd = '#0D47A1'
+        bknd = '#163052'
         hlight = '#f9a825'
-        headIMG = 'https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/ce2ece60-9b32-11e6-95ab-00163ed833e7/260663710/the-test-fun-for-friends-screenshot.jpg'
+        headIMG = 'https://www.gradshop.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/h/s/hs-mt-044_0_4_3.jpg'
     elif school == 'crh':
         bknd = '#163052'
         hlight = '#7DA7D9'
