@@ -2,17 +2,23 @@
 ## SUPERVISOR
 Edit Config:
 `sudo vim /etc/supervisor/conf.d/hello_world.conf`
+
 Re-read Config:
 `sudo supervisorctl reread`
+
 Start/Stop/Restart:
 `sudo service supervisor start/stop/restart`
+
 Status:
 `sudo supervisorctl status`
 ## NGINX
+
 Edit Config:
 `sudo vim /etc/nginx/conf.d/virtual.conf`
+
 Test Config:
 `sudo nginx -t`
+
 Start/Stop/Restart:
 `sudo service nginx start/stop/restart`
 
