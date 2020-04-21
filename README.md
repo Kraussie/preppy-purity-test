@@ -35,3 +35,5 @@ Start/Stop/Restart:
 # **TO DO**
 - Create personalized questions for other schools
 - Route personalized questions to test.html
+- Add Simple Analytics Tracking
+- Create stats/results page
