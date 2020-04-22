@@ -46,10 +46,10 @@ View NGINX Access Log:
 - Fixed Geolocation API request, wasn't a secured connection and was blocked by Chrome browser
 - 'Index.db' file works and saves properly
 - Downloaded SSL certificates, saved to GDrive
+- Created JS function that runs on page load, will collect IP info w/out needing a test to be submitted
 
 
 # **TO DO**
 - Add routing for new schools + colorss
-- Create JS function that runs on page load, will collect IP info w/out needing a test to be submitted
 - Create stats/results page
 - Reformat test page
