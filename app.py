@@ -6,7 +6,7 @@ table = db['resp_table']
 
 app = Flask(__name__)
 
-app.logger('SERVER INITIALIZED')
+app.logger.info('SERVER INITIALIZED')
 
 @app.route('/')
 def index():
