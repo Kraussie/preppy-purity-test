@@ -11,6 +11,9 @@ Start/Stop/Restart:
 
 Status:
 `sudo supervisorctl status`
+
+View Supervisor Output Log:
+`tail -f /var/log/hello_world/hello_world.out.log`
 ## NGINX
 
 Edit Config:

@@ -12,7 +12,7 @@ def index():
 
 @app.route('/test')
 def test():
-    print('test')
+    app.logger.info('test')
     school = request.args['sch']
     if school == 'gen':
         bknd = '#163052'
