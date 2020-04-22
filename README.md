@@ -40,4 +40,5 @@ View NGINX Access Log:
 
 # **TO DO**
 - Add routing for new schools
+- Add logging [MODULE DOCUMENTATION](https://docs.python.org/2.6/library/logging.html)
 - Create stats/results page
