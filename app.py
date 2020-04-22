@@ -1,17 +1,23 @@
-import dataset
+import dataset, logging
 from flask import Flask, render_template, request, url_for
+
+LOG_FILENAME = '/var/log/app.log'
+logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG)
 
 db = dataset.connect('sqlite:///index.db')
 table = db['resp_table']
+logging.debug('DATABASE INTITIALIZED')
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
+    logging.debug('RENDERING >> index.html')
     return render_template('index.html')
 
 @app.route('/test')
 def test():
+    logging.debug('RENDERING >> test.html')
     school = request.args['sch']
     if school == 'gen':
         bknd = '#163052'

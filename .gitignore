@@ -1824,3 +1824,4 @@ env/Scripts/wheel-3.8.exe
 env/Scripts/wheel.exe
 env/Scripts/wheel3.exe
 env/Scripts/winsound.pyd
+*.pyc
