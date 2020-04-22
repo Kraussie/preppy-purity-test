@@ -8,11 +8,11 @@ logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
 logging.debug('This message should go to the log file')
 
 # "application" code
-logger.debug("debug message")
-logger.info("info message")
-logger.warn("warn message")
-logger.error("error message")
-logger.critical("critical message")
+logging.debug("debug message")
+logging.info("info message")
+logging.warn("warn message")
+logging.error("error message")
+logging.critical("critical message")
 
 #database initialization
 db = dataset.connect('sqlite:///index.db')
