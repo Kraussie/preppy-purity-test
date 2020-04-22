@@ -1,20 +1,20 @@
 import dataset, logging
 from flask import Flask, render_template, request, url_for
 
-#create logger
+#create log file
 LOG_FILENAME = '/var/log/app.log'
 logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
-#set formatter
-logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-
-logging.debug('This message should go to the log file')
-
-# "application" code
-logging.debug("debug message")
-logging.info("info message")
-logging.warn("warn message")
-logging.error("error message")
-logging.critical("critical message")
+#create console handler and set level to debug
+ch = logging.StremHandler()
+ch.setLevel(logging.DEBUG)
+#create formatter + add to ch
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+ch.setFormatter(formatter)
+#create modules loggers
+indexLog = logging.getLogger('index.html')
+testLog = logging.getLogger('test.html')
+indexLog.addHandler(ch)
+testLog.addHandler(ch)
 
 #database initialization
 db = dataset.connect('sqlite:///index.db')
@@ -24,10 +24,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    indexLog.info('RENDERED')
     return render_template('index.html')
 
 @app.route('/test')
 def test():
+    testLog.info('RENDERED')
     school = request.args['sch']
     if school == 'gen':
         bknd = '#163052'
