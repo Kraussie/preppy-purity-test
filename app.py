@@ -1,8 +1,19 @@
 import dataset, logging
 from flask import Flask, render_template, request, url_for
 
-LOG_FILENAME = '/var/log/app.log'
-logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG)
+#create logger
+logger = logging.getLogger("/var/log/app.log")
+logger.setLevel(logging.DEBUG)
+#create console handler and set level to debug
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+#create formatter
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")'
+#add formatter to ch
+ch.setFormatter(formatter)
+#add ch to Logger
+logger.addHandler(ch)
+
 
 db = dataset.connect('sqlite:///index.db')
 table = db['resp_table']
@@ -12,12 +23,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    logging.debug('RENDERING >> index.html')
+    logger.info('RENDERING >> index.html')
     return render_template('index.html')
 
 @app.route('/test')
 def test():
-    logging.debug('RENDERING >> test.html')
+    logging.critical('RENDERING >> test.html')
     school = request.args['sch']
     if school == 'gen':
         bknd = '#163052'

@@ -1,4 +1,7 @@
 # **SERVER COMMANDS/NOTES**
+View General Logs:
+`tail -f /var/log/app.log`
+
 ## SUPERVISOR
 Edit Config:
 `sudo vim /etc/supervisor/conf.d/hello_world.conf`
@@ -39,6 +42,7 @@ View NGINX Access Log:
 - http --> https re-reroute setup in nginx config [[TUTORIAL]](https://linuxize.com/post/redirect-http-to-https-in-nginx/)
 
 # **TO DO**
+- Download SSL certifications
 - Add routing for new schools
 - Add logging [MODULE DOCUMENTATION](https://docs.python.org/2.6/library/logging.html)
 - Create stats/results page
