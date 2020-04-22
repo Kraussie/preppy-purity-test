@@ -16,8 +16,8 @@ DEFAULT_LOGGING = {
     'version': 1,
     'formatters': {
         'standard': {
-            'format': color.RED + '%(asctime)-2s' + color.END + color.PURPLE + ' %(levelname)-4s' + color.END + '%(message)s',
-            'datefmt': '%Y-%m-%d:%H:%M:%S' },
+            'format': color.RED + '%(asctime)-2s' + color.END + color.PURPLE + ' %(levelname)-8s' + color.END + '%(message)s',
+            'datefmt': '%Y-%m-%d | %H:%M:%S' },
     },
     'handlers': {
         'console':  {'class': 'logging.StreamHandler',
