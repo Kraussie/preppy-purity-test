@@ -22,6 +22,9 @@ Test Config:
 Start/Stop/Restart:
 `sudo service nginx start/stop/restart`
 
+View NGINX Access Log:
+`tail -f /var/log/nginx/access.log`
+
 
 # **TIMELINE**
 04/20/2020:
