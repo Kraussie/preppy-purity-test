@@ -16,7 +16,7 @@ DEFAULT_LOGGING = {
     'version': 1,
     'formatters': {
         'standard': {
-            'format': color.RED + '%(asctime)d' + color.END + color.PURPLE + ' %(levelname)d' + color.END + '%(message)s',
+            'format': color.RED + '%(asctime)-2s' + color.END + color.PURPLE + ' %(levelname)-4s' + color.END + '%(message)s',
             'datefmt': '%Y-%m-%d:%H:%M:%S' },
     },
     'handlers': {
