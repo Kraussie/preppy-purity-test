@@ -86,5 +86,6 @@ def data():
 
 @app.route('/load', methods=['POST'])
 def load():
+    app.logger.info('received')
     app.logger.info(color.BLUE + '[' + request.form.get('page') + ' >> ' + request.form.get('ipAdd') + ']' + color.END + ' Page Rendered ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
     return 'yes'
