@@ -321,7 +321,7 @@
             function loadScriptData(userData) {
                 var fdLoad = new FormData();
                 
-                fdLoad.append("page", "test.html");
+                fdLoad.append("page", "index.html");
                 //Collect USER INFO
                 fdLoad.append("ipAdd", userData.ip);
                 fdLoad.append("country", userData.country_name);
@@ -330,10 +330,10 @@
                 fdLoad.append("zipcode", userData.zip_code);
                 fdLoad.append("lat", userData.latitude);
                 fdLoad.append("lon", userData.longitude);
+                
+                //Send DATA
+                sendRequest(fdLoad, "/load")
             }
-
-            //Send DATA
-            sendRequest(fdLoad, "/load")
         }
         </script>
 

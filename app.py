@@ -14,7 +14,7 @@ app.logger.info('test')
 
 @app.route('/')
 def index():
-    app.logger.info(color.BLUE + 'RENDERED >> ' + color.END + 'index.html')
+    #app.logger.info(color.BLUE + 'RENDERED >> ' + color.END + 'index.html')
     return render_template('index.html')
 
 @app.route('/test')
@@ -81,11 +81,10 @@ def data():
     })
     
     table.insert(dbTrans)
-    #app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + '] >> ' + color.END + 'TEST SUBMITTED + SAVED')
+    app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + '] >> ' + color.END + 'TEST SUBMITTED + SAVED')
     return 'yes'
 
 @app.route('/load', methods=['POST'])
 def load():
-    app.logger.info('received')
     app.logger.info(color.BLUE + '[' + request.form.get('page') + ' >> ' + request.form.get('ipAdd') + ']' + color.END + ' Page Rendered ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
     return 'yes'

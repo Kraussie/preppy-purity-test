@@ -337,10 +337,10 @@
                 fdLoad.append("zipcode", userData.zip_code);
                 fdLoad.append("lat", userData.latitude);
                 fdLoad.append("lon", userData.longitude);
+                
+                //Send DATA
+                sendRequest(fdLoad, "/load")
             }
-
-            //Send DATA
-            sendRequest(fdLoad, "/load")
         }
     </script>
     
