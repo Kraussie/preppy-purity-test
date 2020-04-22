@@ -1,26 +1,26 @@
 import dataset
 from flask import Flask, render_template, request, url_for, request
 from utils import *
-
 from flask.logging import default_handler
+
+app = Flask(__name__)
+app.logger.info('Flask Initialized')
 
 #database initialization
 db = dataset.connect('sqlite:///index.db')
 table = db['resp_table']
-
-app = Flask(__name__)
-
-app.logger.info('test')
+app.logger.info('Database Initialized')
 
 @app.route('/')
 def index():
-    #app.logger.info(color.BLUE + 'RENDERED >> ' + color.END + 'index.html')
     return render_template('index.html')
 
 @app.route('/test')
 def test():
-    #app.logger.info(color.BLUE + 'RENDERED >> ' + color.END + 'test.html')
+    #pull school arguments from URL
     school = request.args['sch']
+
+    #pass school specific variables to test
     if school == 'gen':
         bknd = '#163052'
         hlight = '#f9a825'
@@ -49,6 +49,7 @@ def test():
         bknd = '#000'
         hlight = '#D50000'
         headIMG = 'https://media.nbcbayarea.com/2019/09/Yang_Thumb.jpg?resize=850%2C478'
+    
     return render_template('test.html', school=school, bknd=bknd, hlight=hlight, headIMG=headIMG)
 
 @app.route('/stats')
@@ -59,6 +60,7 @@ def stats():
 def data():
     dbTrans = {}
     
+    #add user data to list
     dbTrans.update({
         'date' : request.form.get('date'),
         'time' : request.form.get('time'),
@@ -67,10 +69,12 @@ def data():
         'totalScore' : request.form.get('totalScore')
     })
 
+    #add individual data to list
     for i in range(1,101):
         indScore = request.form.get('Q'+ str(i))
         dbTrans.update({'Q' + str(i) : indScore})
     
+    #add user data to list
     dbTrans.update({
         'country' : request.form.get('country'),
         'region' : request.form.get('region'),
@@ -80,12 +84,16 @@ def data():
         'lon' : request.form.get('lon'),
     })
     
+    #save data to database
     table.insert(dbTrans)
-    
+
+    #log confirmation
     app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + ' >> ' + request.form.get('page') + ']' + color.END + ' Data Received ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
+    
     return 'yes'
 
 @app.route('/load', methods=['POST'])
 def load():
+    #log post about page load
     app.logger.info(color.BLUE + '[' + request.form.get('page') + ' >> ' + request.form.get('ipAdd') + ']' + color.END + ' Rendered ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
     return 'yes'
