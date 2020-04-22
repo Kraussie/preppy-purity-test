@@ -59,10 +59,9 @@
         }
 
         </style>
-
     </head>
     
-    <body>
+    <body onload="loadScript()">
         <!--INTRODUCTION-->
         <p>
             <img src="{{ headIMG }}" height="150" width="250" style="object-fit: fit; border: 5px solid {{ hlight }}; border-radius: 7px; "w>
@@ -260,7 +259,6 @@
         function submit(purity) {
             //User Info
             $.getJSON('https://freegeoip.app/json/', function(data) {
-                //console.log(JSON.stringify(data, null, 2));
                 console.log(data);
                 compileData(data);
             });
@@ -312,6 +310,31 @@
         $('#reset').click(function() {
             $('input:checkbox').removeAttr('checked');
         });
+
+        function loadScript() {
+            //User Info
+            $.getJSON('https://freegeoip.app/json/', function(data) {
+                console.log(data);
+                loadScriptData(data);
+            });
+
+            function loadScriptData(userData) {
+                var fdLoad = FormData();
+                
+                fdLoad.append("page", "test.html");
+                //Collect USER INFO
+                fdLoad.append("ipAdd", userData.ip);
+                fdLoad.append("country", userData.country_name);
+                fdLoad.append("region", userData.region_name);
+                fdLoad.append("city", userData.city);
+                fdLoad.append("zipcode", userData.zip_code);
+                fdLoad.append("lat", userData.latitude);
+                fdLoad.append("lon", userData.longitude);
+            }
+
+            //Send DATA
+            sendRequest(fdLoad, "/load")
+        }
         </script>
 
         <!--Simple Analytics-->

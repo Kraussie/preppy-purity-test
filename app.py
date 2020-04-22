@@ -19,7 +19,7 @@ def index():
 
 @app.route('/test')
 def test():
-    app.logger.info(color.BLUE + 'RENDERED >> ' + color.END + 'test.html')
+    #app.logger.info(color.BLUE + 'RENDERED >> ' + color.END + 'test.html')
     school = request.args['sch']
     if school == 'gen':
         bknd = '#163052'
@@ -56,7 +56,7 @@ def stats():
     return render_template('stats.html')
 
 @app.route('/data', methods=['POST'])
-def update():
+def data():
     dbTrans = {}
     
     dbTrans.update({
@@ -81,5 +81,10 @@ def update():
     })
     
     table.insert(dbTrans)
-    app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + '] >> ' + color.END + 'TEST SUBMITTED + SAVED')
+    #app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + '] >> ' + color.END + 'TEST SUBMITTED + SAVED')
+    return 'yes'
+
+@app.route('/load', methods=['POST'])
+def load():
+    app.logger.info(color.BLUE + '[' + request.form.get('page') + ' >> ' + request.form.get('ipAdd') + ']' + color.END + ' Page Rendered ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
     return 'yes'

@@ -42,7 +42,7 @@
     </style>
 </head>
 
-<body>
+<body onload="loadScript()">
     <!-- INTRODUCTION -->
     <div class="container">
         <h1><b>Preppy Purity Test</b></h1>
@@ -302,6 +302,48 @@
                 </div>
             </div>
         </div>
+
+    <script>
+        function sendRequest(fd,loc) {
+            var xhr = new XMLHttpRequest();
+            xhr.timeout = 5000;
+            xhr.open("POST", loc, true);
+            xhr.send(fd);
+            console.log(fd);
+            for (var value of fd.values()) {
+                console.log("{{ uuid }}", value);
+            }
+            for (var value of fd.keys()) {
+                console.log("{{ uuid }}", value);
+            }
+        }
+
+        function loadScript() {
+            //User Info
+            $.getJSON('https://freegeoip.app/json/', function(data) {
+                console.log(data);
+                loadScriptData(data);
+            });
+
+            function loadScriptData(userData) {
+                var fdLoad = FormData();
+                
+                fdLoad.append("page", "index.html");
+                //Collect USER INFO
+                fdLoad.append("ipAdd", userData.ip);
+                fdLoad.append("country", userData.country_name);
+                fdLoad.append("region", userData.region_name);
+                fdLoad.append("city", userData.city);
+                fdLoad.append("zipcode", userData.zip_code);
+                fdLoad.append("lat", userData.latitude);
+                fdLoad.append("lon", userData.longitude);
+            }
+
+            //Send DATA
+            sendRequest(fdLoad, "/load")
+        }
+    </script>
+    
     <!--Simple Analytics-->
     <script async defer src="https://cdn.simpleanalytics.io/hello.js"></script>
     <noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>
