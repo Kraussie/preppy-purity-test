@@ -78,9 +78,6 @@ def update():
         'zipcode' : request.form.get('zipcode'),
         'lat' : request.form.get('lat'),
         'lon' : request.form.get('lon'),
-        'isp' : request.form.get('isp'),
-        'org' : request.form.get('org'),
-        'as' : request.form.get('as')
     })
     
     table.insert(dbTrans)

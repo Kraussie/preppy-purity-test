@@ -259,7 +259,7 @@
 
         function submit(purity) {
             //User Info
-            $.getJSON('http://ip-api.com/json?callback=?', function(data) {
+            $.getJSON('https://freegeoip.app/json/', function(data) {
                 //console.log(JSON.stringify(data, null, 2));
                 console.log(data);
                 compileData(data);
@@ -279,16 +279,13 @@
                 fd.append("school", param);
 
                 //Collect USER INFO
-                fd.append("ipAdd", userData.query);
-                fd.append("country", userData.country);
-                fd.append("region", userData.regionName);
+                fd.append("ipAdd", userData.ip);
+                fd.append("country", userData.country_name);
+                fd.append("region", userData.region_name);
                 fd.append("city", userData.city);
-                fd.append("zipcode", userData.zip);
-                fd.append("lat", userData.lat);
-                fd.append("lon", userData.lon);
-                fd.append("isp", userData.isp);
-                fd.append("org", userData.org);
-                fd.append("as", userData.as);
+                fd.append("zipcode", userData.zip_code);
+                fd.append("lat", userData.latitude);
+                fd.append("lon", userData.longitude);
                 
                 //Collect TOTAL SCORE
                 fd.append("totalScore", purity)
