@@ -41,8 +41,15 @@ View NGINX Access Log:
 - SSL Certificate installed [[TUTORIAL]](https://www.digicert.com/kb/csr-ssl-installation/nginx-openssl.htm#ssl_certificate_install) and [[TUTORIAL]](https://serversforhackers.com/c/testing-and-debugging-ssl-certificates)
 - http --> https re-reroute setup in nginx config [[TUTORIAL]](https://linuxize.com/post/redirect-http-to-https-in-nginx/)
 
+04/22/2020:
+- Flask Logging Setup (found a "/var/log/app.log"), very barebones currently
+- Fixed Geolocation API request, wasn't a secured connection and was blocked by Chrome browser
+- 'Index.db' file works and saves properly
+- Downloaded SSL certificates, saved to GDrive
+
+
 # **TO DO**
-- Download SSL certifications
-- Add routing for new schools
-- Add logging [MODULE DOCUMENTATION](https://docs.python.org/2.6/library/logging.html)
+- Add routing for new schools + colorss
+- Create JS function that runs on page load, will collect IP info w/out needing a test to be submitted
 - Create stats/results page
+- Reformat test page
