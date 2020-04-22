@@ -33,7 +33,5 @@ Start/Stop/Restart:
 - http --> https re-reroute setup in nginx config [[TUTORIAL]](https://linuxize.com/post/redirect-http-to-https-in-nginx/)
 
 # **TO DO**
-- Create personalized questions for other schools
-- Route personalized questions to test.html
-- Add Simple Analytics Tracking
+- Add routing for new schools
 - Create stats/results page
