@@ -6,6 +6,8 @@ table = db['resp_table']
 
 app = Flask(__name__)
 
+app.logger('SERVER INITIALIZED')
+
 @app.route('/')
 def index():
     return render_template('index.html')
