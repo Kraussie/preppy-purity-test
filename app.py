@@ -2,7 +2,7 @@ import dataset, logging
 from flask import Flask, render_template, request, url_for
 
 # create logger
-logger = logging.getLogger("simple_example")
+logger = logging.getLogger("/var/log/app.log")
 logger.setLevel(logging.DEBUG)
 # create console handler and set level to debug
 ch = logging.StreamHandler()
