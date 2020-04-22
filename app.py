@@ -6,15 +6,12 @@ table = db['resp_table']
 
 app = Flask(__name__)
 
-app.logger.info('SERVER INITIALIZED')
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
 @app.route('/test')
 def test():
-    app.logger.info('test')
     school = request.args['sch']
     if school == 'gen':
         bknd = '#163052'
