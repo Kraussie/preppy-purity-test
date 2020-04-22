@@ -26,16 +26,12 @@ DEFAULT_LOGGING = {
                      'stream': sys.stdout},
         'file':     {'class': 'logging.FileHandler',
                      'formatter': "standard",
-                     'level': 'WARNING',
+                     'level': 'DEBUG',
                      'filename': '/var/log/app.log','mode': 'w'},
-        'fullOut':  {'class': 'logging.FileHandler',
-                     'formatter': "standard",
-                     'level': 'NOTSET',
-                     'filename': '/var/log/fullOut.log','mode': 'w'},
     },
     'root': {
         'level': 'INFO',
-        'handlers': ['console', 'file', 'fullOut'],
+        'handlers': ['console', 'file'],
         'propagate': False
     }
 }

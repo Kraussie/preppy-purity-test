@@ -1,5 +1,5 @@
 import dataset
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, request
 from utils import *
 
 from flask.logging import default_handler
@@ -14,11 +14,12 @@ app.logger.info('test')
 
 @app.route('/')
 def index():
-    app.logger.warning('RENDERED')
+    app.logger.info(color.BLUE + '[' + request.remote_addr + '] ' + color.END + 'RENDERED >> index.html')
     return render_template('index.html')
 
 @app.route('/test')
 def test():
+    app.logger.info(color.BLUE + '[' + request.remote_addr + '] ' + color.END + 'RENDERED >> test.html')
     school = request.args['sch']
     if school == 'gen':
         bknd = '#163052'
