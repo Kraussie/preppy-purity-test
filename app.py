@@ -1,5 +1,8 @@
 import dataset
 from flask import Flask, render_template, request, url_for
+from utils import *
+
+from flask.logging import default_handler
 
 #database initialization
 db = dataset.connect('sqlite:///index.db')
@@ -7,8 +10,11 @@ table = db['resp_table']
 
 app = Flask(__name__)
 
+app.logger.info('test')
+
 @app.route('/')
 def index():
+    app.logger.warning('RENDERED')
     return render_template('index.html')
 
 @app.route('/test')
@@ -79,6 +85,3 @@ def update():
     table.insert(dbTrans)
 
     return 'yes'
-
-if __name__ == "__main__":
-    app.run(debug=True)
