@@ -81,5 +81,5 @@ def update():
     })
     
     table.insert(dbTrans)
-    app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + '] >>' + color.END + 'TEST SUBMITTED + SAVED')
+    app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + '] >> ' + color.END + 'TEST SUBMITTED + SAVED')
     return 'yes'
