@@ -4,6 +4,8 @@ from flask import Flask, render_template, request, url_for
 #create logger
 LOG_FILENAME = '/var/log/app.log'
 logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
+#set formatter
+logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 
 logging.debug('This message should go to the log file')
 
