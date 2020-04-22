@@ -275,6 +275,7 @@
                 let searchParams = new URLSearchParams(window.location.search);
                 let param = searchParams.get('sch');
                 fd.append("school", param);
+                fd.append("page", "index.db");
 
                 //Collect USER INFO
                 fd.append("ipAdd", userData.ip);
@@ -321,7 +322,7 @@
             function loadScriptData(userData) {
                 var fdLoad = new FormData();
                 
-                fdLoad.append("page", "index.html");
+                fdLoad.append("page", "test.html");
                 //Collect USER INFO
                 fdLoad.append("ipAdd", userData.ip);
                 fdLoad.append("country", userData.country_name);

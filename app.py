@@ -81,10 +81,11 @@ def data():
     })
     
     table.insert(dbTrans)
-    app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + '] >> ' + color.END + 'TEST SUBMITTED + SAVED')
+    
+    app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + ' >> ' + request.form.get('page') + ']' + color.END + ' Data Received ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
     return 'yes'
 
 @app.route('/load', methods=['POST'])
 def load():
-    app.logger.info(color.BLUE + '[' + request.form.get('page') + ' >> ' + request.form.get('ipAdd') + ']' + color.END + ' Page Rendered ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
+    app.logger.info(color.BLUE + '[' + request.form.get('page') + ' >> ' + request.form.get('ipAdd') + ']' + color.END + ' Rendered ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
     return 'yes'
