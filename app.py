@@ -14,12 +14,12 @@ app.logger.info('test')
 
 @app.route('/')
 def index():
-    app.logger.info(color.BLUE + '[' + request.remote_addr + '] ' + color.END + 'RENDERED >> index.html')
+    app.logger.info(color.BLUE + 'RENDERED >> ' + color.END + 'index.html')
     return render_template('index.html')
 
 @app.route('/test')
 def test():
-    app.logger.info(color.BLUE + '[' + request.remote_addr + '] ' + color.END + 'RENDERED >> test.html')
+    app.logger.info(color.BLUE + 'RENDERED >> ' + color.END + 'test.html')
     school = request.args['sch']
     if school == 'gen':
         bknd = '#163052'
@@ -84,5 +84,5 @@ def update():
     })
     
     table.insert(dbTrans)
-
+    app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + '] >>' + color.END + 'TEST SUBMITTED + SAVED')
     return 'yes'
