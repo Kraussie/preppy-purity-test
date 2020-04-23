@@ -155,7 +155,7 @@ def data():
         table.insert(dbTrans)
 
         #log confirmation
-        app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + ' >> ' + request.form.get('page') + ']' + color.END + ' Data Received ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
+        app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + ' >> ' + request.form.get('page') + ']' + color.END + ' Test Score: ' + request.form.get('totalScore') + ' ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
         
         return 'yes'
     elif request.method == 'GET':
