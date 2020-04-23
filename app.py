@@ -56,41 +56,44 @@ def test():
 def stats():
     return render_template('stats.html')
 
-@app.route('/data', methods=['POST'])
+@app.route('/data', methods=['GET', 'POST'])
 def data():
-    dbTrans = {}
-    
-    #add user data to list
-    dbTrans.update({
-        'date' : request.form.get('date'),
-        'time' : request.form.get('time'),
-        'ipAdd' : request.form.get('ipAdd'),
-        'school' : request.form.get('school'),
-        'totalScore' : request.form.get('totalScore')
-    })
+    if request.method == 'POST':
+        dbTrans = {}
+        
+        #add user data to list
+        dbTrans.update({
+            'date' : request.form.get('date'),
+            'time' : request.form.get('time'),
+            'ipAdd' : request.form.get('ipAdd'),
+            'school' : request.form.get('school'),
+            'totalScore' : request.form.get('totalScore')
+        })
 
-    #add individual data to list
-    for i in range(1,101):
-        indScore = request.form.get('Q'+ str(i))
-        dbTrans.update({'Q' + str(i) : indScore})
-    
-    #add user data to list
-    dbTrans.update({
-        'country' : request.form.get('country'),
-        'region' : request.form.get('region'),
-        'city' : request.form.get('city'),
-        'zipcode' : request.form.get('zipcode'),
-        'lat' : request.form.get('lat'),
-        'lon' : request.form.get('lon'),
-    })
-    
-    #save data to database
-    table.insert(dbTrans)
+        #add individual data to list
+        for i in range(1,101):
+            indScore = request.form.get('Q'+ str(i))
+            dbTrans.update({'Q' + str(i) : indScore})
+        
+        #add user data to list
+        dbTrans.update({
+            'country' : request.form.get('country'),
+            'region' : request.form.get('region'),
+            'city' : request.form.get('city'),
+            'zipcode' : request.form.get('zipcode'),
+            'lat' : request.form.get('lat'),
+            'lon' : request.form.get('lon'),
+        })
+        
+        #save data to database
+        table.insert(dbTrans)
 
-    #log confirmation
-    app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + ' >> ' + request.form.get('page') + ']' + color.END + ' Data Received ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
-    
-    return 'yes'
+        #log confirmation
+        app.logger.info(color.BLUE + '[' + request.form.get('ipAdd') + ' >> ' + request.form.get('page') + ']' + color.END + ' Data Received ' + color.YELLOW + '(' + request.form.get('city') + ', ' + request.form.get('region') + ', ' + request.form.get('country') + ')' + color.END)
+        
+        return 'yes'
+    elif request.method == 'GET':
+        return 'not working yet'
 
 @app.route('/load', methods=['POST'])
 def load():

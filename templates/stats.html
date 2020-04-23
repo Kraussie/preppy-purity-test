@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Page Settings-->
+    <title>Stats • Preppy Purity Test</title>
+    <link rel="icon" href="https://www.vineyardvines.com/on/demandware.static/Sites-Vineyard-Vines-Site/-/default/dwf2a5ae38/img/favicons/favicon-32x32.png">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Style -->
+    <style>
+        html {
+            background-color: #aec9eb;
+            color: #2c2c2c;
+        }
+
+        body {
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 40px;
+        }
+
+        h1:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+
+        var instance = M.FormSelect.getInstance(elem);
+    </script>
+</head>
+
+<body onload="loadScript()">
+    <!-- INTRODUCTION -->
+    <div class="container">
+        <h1><b><a href="https://www.puritytest.wtf" style="color: #2c2c2c">Preppy Purity Test</a></b></h1>
+        <div id="toHide">
+            <p><i>The Preppy Purity Test is based off of the original Purity Test that was meant<br>for college students to track the maturation of their experiences throughout college.<br>This test has been adapted to the prep school culture.</i></p>
+        </div>
+
+        <div class="row">
+            <button class="btn waves-effect waves-light yellow darken-3" style="margin:2.5%" onclick="showQuestion()">Stats by Question</button> 
+            <button class="btn waves-effect waves-light yellow darken-3" style="margin: 2.5%" onclick="showSchool()">Stats by School</button>
+        </div>
+    </div>
+
+    <div id="questionStats">
+        <h1>test 1</h1>
+    </div>
+
+    <div id="schoolStats">
+        <h1>test 2</h1>
+    </div>
+
+    <script>
+        // Initially hides school stats
+        $("#schoolStats").hide();
+
+        //show school stats
+        function showSchool() {
+            $("#schoolStats").show();
+            $("#questionStats").hide();
+            console.log('show school');
+        }
+
+        //show question stats
+        function showQuestion() {
+            $("#questionStats").show();
+            $("#schoolStats").hide();
+            console.log('show question');
+        }
+
+        //POST Request to back-end server
+        function sendRequest(fd,loc) {
+            var xhr = new XMLHttpRequest();
+            xhr.timeout = 5000;
+            xhr.open("POST", loc, true);
+            xhr.send(fd);
+            console.log(fd);
+            for (var value of fd.values()) {
+                console.log("{{ uuid }}", value);
+            }
+            for (var value of fd.keys()) {
+                console.log("{{ uuid }}", value);
+            }
+        }
+        
+        //GET data from index.db
+        function loadData() {
+            $.getJSON('/data', function(data) {
+                console.log(data);
+            });
+        }
+
+        function loadScript() {
+            //User Info
+            $.getJSON('https://freegeoip.app/json/', function(data) {
+                console.log(data);
+                loadScriptData(data);
+            });
+
+            function loadScriptData(userData) {
+                var fdLoad = new FormData();
+                
+                fdLoad.append("page", "stats.html");
+                //Collect USER INFO
+                fdLoad.append("ipAdd", userData.ip);
+                fdLoad.append("country", userData.country_name);
+                fdLoad.append("region", userData.region_name);
+                fdLoad.append("city", userData.city);
+                fdLoad.append("zipcode", userData.zip_code);
+                fdLoad.append("lat", userData.latitude);
+                fdLoad.append("lon", userData.longitude);
+                
+                //Send DATA
+                sendRequest(fdLoad, "/load")
+            }
+        }
+    </script>
+    
+    <!--Simple Analytics-->
+    <script async defer src="https://cdn.simpleanalytics.io/hello.js"></script>
+    <noscript><img src="https://api.simpleanalytics.io/hello.gif" alt=""></noscript>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

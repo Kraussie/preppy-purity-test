@@ -1,0 +1,10 @@
+[91m2020-04-22 | 22:31:24[0m[95m INFO    [0mFlask Initialized
+[91m2020-04-22 | 22:31:24[0m[95m INFO    [0mDatabase Initialized
+[91m2020-04-22 | 22:31:24[0m[95m INFO    [0m * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[91m2020-04-22 | 22:33:09[0m[95m INFO    [0m[94m[38.126.101.128 >> index.db][0m Data Received [93m(New Haven, Connecticut, United States)[0m
+[91m2020-04-22 | 22:33:09[0m[95m INFO    [0m127.0.0.1 - - [22/Apr/2020 22:33:09] "[37mPOST /data HTTP/1.1[0m" 200 -
+[91m2020-04-22 | 22:33:14[0m[95m INFO    [0m127.0.0.1 - - [22/Apr/2020 22:33:14] "[37mGET /test?sch=crh HTTP/1.1[0m" 200 -
+[91m2020-04-22 | 22:33:15[0m[95m INFO    [0m[94m[test.html >> 38.126.101.128][0m Rendered [93m(New Haven, Connecticut, United States)[0m
+[91m2020-04-22 | 22:33:15[0m[95m INFO    [0m127.0.0.1 - - [22/Apr/2020 22:33:15] "[37mPOST /load HTTP/1.1[0m" 200 -
+[91m2020-04-22 | 22:33:20[0m[95m INFO    [0m[94m[38.126.101.128 >> index.db][0m Data Received [93m(New Haven, Connecticut, United States)[0m
+[91m2020-04-22 | 22:33:20[0m[95m INFO    [0m127.0.0.1 - - [22/Apr/2020 22:33:20] "[37mPOST /data HTTP/1.1[0m" 200 -

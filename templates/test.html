@@ -179,6 +179,9 @@
 
                 <input class="button" id="submit" type="submit" value="Calculate!" style="margin-right: 1rem;">
                 <input class="button" id="reset" type="submit" value="Clear">
+
+                <!--TEMPORARY BUTTON-->
+                <input class="button" id="randomize" type="submit" value="RANDOMIZE">
             </div>
         </div>
 
@@ -199,11 +202,18 @@
         </div>
         
         <script>
-        // IDs
-        // toHide: Everything that needs to be hidden when score is shown
-        // toShow: Everything that needs to be shown when score is shown
-        // score: h1 that shows the score
-        
+        //TEMPORARY FUNCTION to randomize selected checks
+        $('#randomize').click(function() {
+            function randomNum() {
+                return Math.floor(Math.random() * 100) + 1;
+            };
+            const ranNum = randomNum();
+            for (i = 1; i < ranNum; i++) {
+                const ranIDnum = randomNum();
+                $('#' + ranIDnum).prop('checked', true);
+            };
+        });
+
         // Initially hides results
         $("#toShow").hide();
 

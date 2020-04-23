@@ -51,5 +51,8 @@ View NGINX Access Log:
 
 # **TO DO**
 - Add routing for new schools + colorss
-- Create stats/results page
+- Create stats/results page 
+    - (https://dataset.readthedocs.io/en/latest/)
+    - (https://inloop.github.io/sqlite-viewer/)
 - Reformat test page
+- Remove logging to client console
