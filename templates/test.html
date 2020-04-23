@@ -316,7 +316,9 @@
             function loadScriptData(userData) {
                 var fdLoad = new FormData();
                 
-                fdLoad.append("page", "test.html");
+                let searchParams = new URLSearchParams(window.location.search);
+                const currPage = "test.html (" + searchParams.get('sch') + ")"
+                fdLoad.append("page", currPage);
                 //Collect USER INFO
                 fdLoad.append("ipAdd", userData.ip);
                 fdLoad.append("country", userData.country_name);
