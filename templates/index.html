@@ -313,7 +313,6 @@
             xhr.timeout = 5000;
             xhr.open("POST", loc, true);
             xhr.send(fd);
-            console.log(fd);
             for (var value of fd.values()) {
                 console.log("{{ uuid }}", value);
             }
@@ -325,7 +324,6 @@
         function loadScript() {
             //User Info
             $.getJSON('https://freegeoip.app/json/', function(data) {
-                console.log(data);
                 loadScriptData(data);
             });
 
