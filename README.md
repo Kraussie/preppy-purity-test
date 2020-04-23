@@ -47,6 +47,11 @@ View NGINX Access Log:
 - 'Index.db' file works and saves properly
 - Downloaded SSL certificates, saved to GDrive
 - Created JS function that runs on page load, will collect IP info w/out needing a test to be submitted
+- changed index.html favicon to vineyard vines logo
+- Began work on stats.html page
+- app.py accepts POST and GET requests now
+- added randomize button to test.html
+- Began work on Python script to spam data
 
 
 # **TO DO**
