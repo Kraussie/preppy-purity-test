@@ -53,11 +53,13 @@ View NGINX Access Log:
 - added randomize button to test.html
 - Began work on Python script to spam data
 
+04/23/2020:
+- Random Sample Data (python script) created and working
 
 # **TO DO**
-- Add routing for new schools + colorss
 - Create stats/results page 
     - (https://dataset.readthedocs.io/en/latest/)
     - (https://inloop.github.io/sqlite-viewer/)
-- Reformat test page
+- Add routing for new schools + colors
+- Reformat test.html
 - Remove logging to client console
