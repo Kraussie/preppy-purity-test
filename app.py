@@ -20,37 +20,103 @@ def test():
     #pull school arguments from URL
     school = request.args['sch']
 
-    #pass school specific variables to test
-    if school == 'gen':
+    if school == 'crh':
         bknd = '#163052'
-        hlight = '#f9a825'
-        headIMG = 'https://www.gradshop.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/h/s/hs-mt-044_0_4_3.jpg'
-    elif school == 'crh':
-        bknd = '#163052'
-        hlight = '#7DA7D9'
-        headIMG = 'https://www-tc.pbs.org/wgbh/americanexperience/media/filer_public_thumbnails/filer_public/d1/46/d1464710-a056-41ba-a15b-0f2fc5bfa34a/jfk_harvard_800.jpg__800x529_q85_crop_subsampling-2_upscale.jpg'
+        hlight = '#aec9eb'
+        headIMG = "/static/imgs/crh_test.jpg"
+        schNM = 'Choate Rosemary Hall | Purity Test'
     elif school == 'da':
         bknd = '#1b5e20'
         hlight = '#00e676'
-        headIMG = 'https://d13b2ieg84qqce.cloudfront.net/705b9a8896af4dad10ba668e7b9f8a9363189480.jpg'
+        headIMG = '/static/imgs/da.jpg'
+        schNM = 'Deerfield Academy | Purity Test'
     elif school == 'hkiss':
-        bknd = '#0D47A1'
-        hlight = '#eee'
-        headIMG = 'https://www.hotchkiss.org/uploaded/images/Alumni/Alumni_Accomplishments/Banner_Janney77.jpg'
+        bknd = '#163052'
+        hlight = '#7DA7D9'
+        headIMG = '/static/imgs/hkiss.jpg'
+        schNM = 'Hotchkiss School | Purity Test'
     elif school == 'lville':
         bknd = '#000'
         hlight = '#D50000'
-        headIMG = 'https://prabook.com/web/show-photo-icon.jpg?id=13355&width=220&cache=false'
+        headIMG = '/static/imgs/lville.jpg'
+        schNM = 'Lawrenceville School | Purity Test'
     elif school == 'and':
-        bknd = '#0D4741'
-        hlight = '#eee'
-        headIMG = 'https://i.ytimg.com/vi/OJTq4j2kDdw/maxresdefault.jpg'
+        bknd = '#163052'
+        hlight = '#7DA7D9'
+        headIMG = '/static/imgs/and.jpg'
+        schNM = 'Phillips Academy Andover | Purity Test'
     elif school == 'ext':
         bknd = '#000'
         hlight = '#D50000'
-        headIMG = 'https://media.nbcbayarea.com/2019/09/Yang_Thumb.jpg?resize=850%2C478'
+        headIMG = '/static/imgs/ext_test.jpg'
+        schNM = 'Phillips Academy Exeter | Purity Test'
+    elif school == 'sa':
+        bknd = '#000'
+        hlight = '#F55F20'
+        headIMG = '/static/imgs/sa_test.jpg'
+        schNM = 'Suffield Academy | Purity Test'
+    elif school == 'mdsx':
+        bknd = '#000'
+        hlight = '#D50000'
+        headIMG = '/static/imgs/mdsx.png'
+        schNM = 'Middlesex Academy | Purity Test'
+    elif school == 'ewlk':
+        bknd = '#481d6c'
+        hlight = '#fff'
+        headIMG = '/static/imgs/ewlk.png'
+        schNM = 'Ethel Walker School | Purity Test'
+    elif school == 'brkshr':
+        bknd = '#1b5e20'
+        hlight = '#00e676'
+        headIMG = '/static/imgs/brkshr.jpg'
+        schNM = 'Berkshire School | Purity Test'
+    elif school == 'wstmn':
+        bknd = '#000'
+        hlight = '#ccc'
+        headIMG = '/static/imgs/wstmn.jpg'
+        schNM = 'Westminster School | Purity Test'
+    elif school == 'ko':
+        bknd = '#000'
+        hlight = '#D50000'
+        headIMG = '/static/imgs/ko.jpg'
+        schNM = 'Kingswood Oxford School | Purity Test'
+    elif school == 'avon':
+        bknd = '#000'
+        hlight = '#D50000'
+        headIMG = '/static/imgs/avon.jpg'
+        schNM = 'Avon Old Farms School | Purity Test'
+    elif school == 'spal':
+        bknd = '#000'
+        hlight = '#D50000'
+        headIMG = '/static/imgs/spal.jpg'
+        schNM = 'St. Paul\'s School | Purity Test'
+    elif school == 'mltn':
+        bknd = '#163052'
+        hlight = '#7DA7D9'
+        headIMG = '/static/imgs/mltn.jpg'
+        schNM = 'Milton Academy | Purity Test'
+    elif school == 'wlstn':
+        bknd = '#163052'
+        hlight = '#7DA7D9'
+        headIMG = '/static/imgs/wlstn.jpg'
+        schNM = 'Williston Academy | Purity Test'
+    elif school == 'grtn':
+        bknd = '#000'
+        hlight = '#D50000'
+        headIMG = '/static/imgs/grtn.jpg'
+        schNM = 'Groton School | Purity Test'
+    elif school == 'knt':
+        bknd = '#163052'
+        hlight = '#fff'
+        headIMG = '/static/imgs/knt.jpg'
+        schNM = 'Kent School | Purity Test'
+    elif school == 'gen':
+        bknd = '#163052'
+        hlight = '#fff'
+        headIMG = '/static/imgs/gen.jpg'
+        schNM = 'Preppy Purity Test'
     
-    return render_template('test.html', school=school, bknd=bknd, hlight=hlight, headIMG=headIMG)
+    return render_template('test.html', school=school, bknd=bknd, hlight=hlight, headIMG=headIMG, schNM=schNM)
 
 @app.route('/stats')
 def stats():

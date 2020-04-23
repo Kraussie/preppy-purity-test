@@ -57,9 +57,13 @@ View NGINX Access Log:
 - Random Sample Data (python script) created and working
 
 # **TO DO**
-- Create stats/results page 
-    - (https://dataset.readthedocs.io/en/latest/)
-    - (https://inloop.github.io/sqlite-viewer/)
+CRITICIAL:
 - Add routing for new schools + colors
 - Reformat test.html
 - Remove logging to client console
+- Reset index.db
+
+NON-CRITICAL:
+- Create stats/results page 
+    - (https://dataset.readthedocs.io/en/latest/)
+    - (https://inloop.github.io/sqlite-viewer/)

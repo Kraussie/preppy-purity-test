@@ -1,10 +1,10 @@
 import requests, random, progressbar
 
-for i in progressbar.progressbar(range(350)):
+for i in progressbar.progressbar(range(400)):
     sendData = {
         'date': '4-22-2020',
         'time': '22:33:20',
-        'school': 'gen',
+        'school': random.choice(['gen', 'crh', 'da', 'hkiss', 'lville', 'and', 'ext', 'sa', 'mdsx', 'ewlk', 'brkshr', 'wstmn', 'ko', 'avon', 'spal', 'mltn', 'wlstn', 'grtn', 'knt']),
         'page': 'index.db',
         'ipAdd': '38.126.101.128',
         'country': 'United States',
@@ -24,4 +24,5 @@ for i in progressbar.progressbar(range(350)):
             count += 1
         sendData['totalScore'] = 100 - count
 
-    requests.post('http://127.0.0.1:5000/data', data = sendData)
+    #requests.post('http://127.0.0.1:5000/data', data = sendData)
+    requests.post('https://www.puritytest.wtf/data', data = sendData)

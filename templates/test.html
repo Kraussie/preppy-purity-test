@@ -47,7 +47,7 @@
             width: 100px;
             height: 25px;
             border-radius: 7px;
-            background-color: #7DA7D9;
+            background-color: #ccc;
             color: rgb(0, 0, 5);
             position: relative;
             left: 5%;
@@ -64,7 +64,8 @@
     <body onload="loadScript()">
         <!--INTRODUCTION-->
         <p>
-            <img src="{{ headIMG }}" height="150" width="250" style="object-fit: fit; border: 5px solid {{ hlight }}; border-radius: 7px; "w>
+            <img src={{ headIMG }} height="150" width="250" style="object-fit: fit;background-color: white ;border: 5px solid {{ hlight }}; border-radius: 7px;">
+            <h2>{{ schNM }}</h2>
             <div id="toHide">
                 <p><i> The Preppy Purity Test is based off of the original Purity Test that was meant<br>for college students to track the maturation of their experiences throughout college.<br>This test has been adapted to the culture of the school upon the hillside.</i></p>
                 <p><strong>NOTE: This is not a bucket list.<br>Completion of all items on this test will likely result in <i>expulsion</i>.</strong></p>
@@ -179,9 +180,7 @@
 
                 <input class="button" id="submit" type="submit" value="Calculate!" style="margin-right: 1rem;">
                 <input class="button" id="reset" type="submit" value="Clear">
-
-                <!--TEMPORARY BUTTON-->
-                <input class="button" id="randomize" type="submit" value="RANDOMIZE">
+                <br><br><br><br>
             </div>
         </div>
 
@@ -202,18 +201,6 @@
         </div>
         
         <script>
-        //TEMPORARY FUNCTION to randomize selected checks
-        $('#randomize').click(function() {
-            function randomNum() {
-                return Math.floor(Math.random() * 100) + 1;
-            };
-            const ranNum = randomNum();
-            for (i = 1; i < ranNum; i++) {
-                const ranIDnum = randomNum();
-                $('#' + ranIDnum).prop('checked', true);
-            };
-        });
-
         // Initially hides results
         $("#toShow").hide();
 
