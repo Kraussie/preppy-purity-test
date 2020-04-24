@@ -309,7 +309,7 @@
 
         function loadScript() {
             //User Info
-            $.getJSON('https://freegeoip.app/json/', function(data) {
+            $.getJSON('https://ipapi.co/json', function(data) {
                 loadScriptData(data);
             });
 
@@ -322,9 +322,9 @@
                 //Collect USER INFO
                 fdLoad.append("ipAdd", userData.ip);
                 fdLoad.append("country", userData.country_name);
-                fdLoad.append("region", userData.region_name);
+                fdLoad.append("region", userData.region);
                 fdLoad.append("city", userData.city);
-                fdLoad.append("zipcode", userData.zip_code);
+                fdLoad.append("zipcode", userData.postal);
                 fdLoad.append("lat", userData.latitude);
                 fdLoad.append("lon", userData.longitude);
                 
